@@ -5,8 +5,12 @@
     <title>Meeting</title>
 </head>
 <body>
-    {% for room in rooms%}
-        <h1>{{room}}</h1>
-    {% endfor %}
+    {% if rooms %}
+        {% for room in rooms %}
+            <h1><a href="{% url 'room_detail' room.id %}">{{ room }}</a></h1>
+        {% endfor %}
+    {% endif %}
+
+    <button><a href="{% url 'add_room' %}">Add Room</a></button>
 </body>
 </html>
