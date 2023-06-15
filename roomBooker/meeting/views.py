@@ -1,32 +1,30 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from .models import Room
+from django.views.generic import TemplateView, DetailView, ListView, CreateView
 from django.forms import modelform_factory
 
 
-def welcome(request):
-    return HttpResponse("fsdiohugwjlcihd")
+class WelcomeView(TemplateView):
+    template_name = 'meeting/welcome.html'
 
 
-def showRoom(request):
-    rooms = Room.objects.all()
-    return render(request, 'meeting/rooms.html', {'rooms': rooms})
+class ShowRoomView(DetailView):
+    model = Room
+    template_name = 'meeting/room_detail.html'
+    context_object_name = 'detail_room'
 
 
-def detail(request, room_id):
-    detail_room = get_object_or_404(Room, pk=room_id)
-    return render(request, 'meeting/room_detail.html', {'detail_room': detail_room})
+class RoomListView(ListView):
+    model = Room
+    template_name = 'meeting/rooms.html'
+    context_object_name = 'rooms'
+# todo paginacja i filtracja wolnych pokoi
 
 
-FormModel = modelform_factory(Room, exclude=[])
-
-
-def new(request):
-    if request.method == 'POST':
-        form = FormModel(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('rooms'))
-    else:
-        form = FormModel
-    return render(request, 'meeting/new.html', {'form': form})
+class CreateRoomView(CreateView):
+    model = Room
+    fields = '__all__'
+    template_name = 'meeting/new.html'
+    success_url = '/meeting/rooms/'
+    context_object_name = 'form'
