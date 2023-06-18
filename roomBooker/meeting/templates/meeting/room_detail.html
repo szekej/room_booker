@@ -6,6 +6,8 @@
 </head>
 <body>
 <h1>{{detail_room.name}}</h1>
+
 <h3>{{detail_room.description}}</h3>
+<button type="button"><a href="{% url 'delete_room' detail_room.id %}">Delete</a></button>
 </body>
 </html>

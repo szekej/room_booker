@@ -12,3 +12,14 @@ class Room(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Meet(models.Model):
+    name = models.CharField(max_length=50)
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    meet_date = models.DateField()
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
