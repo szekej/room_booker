@@ -5,12 +5,14 @@
     <title>Meeting</title>
 </head>
 <body>
-    {% if rooms %}
-        {% for room in rooms %}
+    {% if room_list %}
+        {% for room in room_list %}
             <h1><a href="{% url 'room_detail' room.id %}">{{ room }}</a></h1>
         {% endfor %}
     {% endif %}
-
-    <button><a href="{% url 'add_room' %}">Add Room</a></button>
+    <!-- if user is admin -> can add new room -->
+    {% if user.is_superuser%}
+        <button><a href="{% url 'add_room' %}">Add Room</a></button>
+    {% endif %}
 </body>
 </html>
