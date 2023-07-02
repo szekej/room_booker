@@ -1,29 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
 <head>
-    <title>Moja strona</title>
-    <style>
-        body {
-            background-color: #EAEAEA; /* kolor tła */
-            margin: 0;
-            padding: 0;
-        }
-        .navbar {
-            background-color: #333; /* kolor tła nawigacji */
-            color: #fff; /* kolor tekstu nawigacji */
-            padding: 10px;
-        }
-        .navbar a {
-            color: #fff; /* kolor linków nawigacji */
-            margin-right: 10px;
-        }
-        .content {
-            margin: 20px;
-        }
-    </style>
+    <title>Room Booker</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'roomBooker/css/styles.css' %}">
 </head>
 <body>
-    <div class="navbar">
+    <div class="navbar" >
         <a href="{% url 'welcome' %}">Start Page</a>
         <a href="{% url 'meets' %}">Meets</a>
         <a href="{% url 'rooms' %}">Rooms</a>

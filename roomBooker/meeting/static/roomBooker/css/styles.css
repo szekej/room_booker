@@ -1,0 +1,26 @@
+body {
+    background-color: #EAEAEA; /* kolor tła */
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-family: Arial, Helvetica, sans-serif; /* Czcionka dla nagłówków h1 */
+
+}
+.navbar {
+    background-color: #333; /* kolor tła nawigacji */
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff; /* kolor tekstu nawigacji */
+    padding: 10px;
+}
+.navbar a {
+    color: #fff; /* kolor linków nawigacji */
+    margin-right: 10px;
+}
+.content {
+    margin: 20px;
+}
+.link {
+  color: #dc3545; /* Kolor linków - czerwony */
+  text-decoration: none; /* Brak podkreślenia */
+}

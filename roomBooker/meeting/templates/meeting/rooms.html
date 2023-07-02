@@ -3,8 +3,10 @@
 {% block content %}
     {% if room_list %}
         {% for room in room_list %}
-            <h1><a href="{% url 'room_detail' room.id %}">{{ room }}</a></h1>
+            <h1><a class="link" href="{% url 'room_detail' room.id %}">{{ room }}</a></h1>
         {% endfor %}
+    {% else %}
+        <h1>There are no rooms available</h1>
     {% endif %}
     <!-- if user is admin -> can add new room -->
     {% if user.is_superuser%}

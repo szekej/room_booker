@@ -4,7 +4,7 @@
     {% if meet_list %}
     <h2>AA</h2>
             {% for meet in meet_list %}
-            <h1><a href="{% url 'meet_detail' meet.id %}">{{meet}}</a></h1>
+            <h1><a class="link" href="{% url 'meet_detail' meet.id %}">{{meet}}</a></h1>
             {% endfor %}
         {% endif %}
         <button><a href="{% url 'add_meet' %}">Add Meet</a></button>
