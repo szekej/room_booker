@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import classonlymethod, method_decorator
 from .models import Room, Meet
+from .forms import CreateMeetForm
 from django.views.generic import TemplateView, DetailView, ListView, CreateView, DeleteView
 
 from django.forms import modelform_factory
@@ -30,7 +31,7 @@ class RoomListView(ListView):
 class CreateRoomView(CreateView):
     model = Room
     fields = '__all__'
-    template_name = 'meeting/new.html'
+    template_name = 'meeting/create_room.html'
     success_url = '/meeting/rooms/'
     context_object_name = 'room_form'
 
@@ -54,7 +55,7 @@ class DeleteRoomView(DeleteView):
 
 class CreateMeetView(CreateView):
     model = Meet
-    fields = '__all__'
+    form_class = CreateMeetForm
     template_name = 'meeting/create_meet.html'
     success_url = '/meeting/welcome'
     context_object_name = 'meet_form'
