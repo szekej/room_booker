@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Meeting</title>
-</head>
-<body>
+{% extends 'meeting/base.html' %}
+
+{% block content %}
     {% if room_list %}
         {% for room in room_list %}
             <h1><a href="{% url 'room_detail' room.id %}">{{ room }}</a></h1>
@@ -14,5 +10,4 @@
     {% if user.is_superuser%}
         <button><a href="{% url 'add_room' %}">Add Room</a></button>
     {% endif %}
-</body>
-</html>
+{% endblock %}

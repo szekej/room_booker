@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'meeting/base.html' %}
+
+{% block content %}
     <form method="POST">
         {% csrf_token %}
         <table>
@@ -13,5 +9,4 @@
         <button type="submit">submit</button>
         <button><a href="{% url 'rooms' %}">cancel</a></button>
     </form>
-</body>
-</html>
+{% endblock %}

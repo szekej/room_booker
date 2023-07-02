@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-<head>
-<body>
+{% extends 'meeting/base.html' %}
+
+{% block content %}
     {% if meet_list %}
     <h2>AA</h2>
-        {% for meet in meet_list %}
-        <h1><a href="{% url 'meet_detail' meet.id %}">{{meet}}</a></h1>
-        {% endfor %}
-    {% endif %}
-    <button><a href="{% url 'add_meet' %}">Add Meet</a></button>
-</body>
-</html>
+            {% for meet in meet_list %}
+            <h1><a href="{% url 'meet_detail' meet.id %}">{{meet}}</a></h1>
+            {% endfor %}
+        {% endif %}
+        <button><a href="{% url 'add_meet' %}">Add Meet</a></button>
+{% endblock %}
