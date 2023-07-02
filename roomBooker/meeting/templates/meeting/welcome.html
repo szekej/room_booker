@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>WELCOME</h1>
-<button type="button"><a href="{% url 'rooms' %}">Rooms</a></button>
-<button type="button"><a href="{% url 'meets' %}">Meets</a></button>
-</body>
-</html>
+{% extends 'meeting/base.html' %}
+
+{% block content %}
+    <h1>WELCOME</h1>
+{% endblock %}

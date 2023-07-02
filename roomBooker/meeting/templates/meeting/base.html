@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moja strona</title>
+    <style>
+        body {
+            background-color: #EAEAEA; /* kolor tła */
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333; /* kolor tła nawigacji */
+            color: #fff; /* kolor tekstu nawigacji */
+            padding: 10px;
+        }
+        .navbar a {
+            color: #fff; /* kolor linków nawigacji */
+            margin-right: 10px;
+        }
+        .content {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'welcome' %}">Start Page</a>
+        <a href="{% url 'meets' %}">Meets</a>
+        <a href="{% url 'rooms' %}">Rooms</a>
+<!--        <a href="#">Kontakt</a>     do ustalenia-->
+    </div>
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>
