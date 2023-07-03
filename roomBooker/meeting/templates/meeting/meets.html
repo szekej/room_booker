@@ -2,10 +2,46 @@
 
 {% block content %}
     {% if meet_list %}
-    <h2>AA</h2>
-            {% for meet in meet_list %}
-            <h1><a href="{% url 'meet_detail' meet.id %}">{{meet}}</a></h1>
-            {% endfor %}
-        {% endif %}
+        {% for meet in meet_list %}
+            <h1><a class="link" href="{% url 'meet_detail' meet.id %}">{{meet}}</a></h1>
+        {% endfor %}
+    {% endif %}
         <button><a href="{% url 'add_meet' %}">Add Meet</a></button>
-{% endblock %}
+
+    {% if meet_list %}
+        {% for meet in meet_list %}
+            <h3>{{meet.name}} {{meet.start_time|time:'H:i'}} {{meet.end_time|time:'H:i'}} {{meet.meet_date|date:'d.m.Y'}}</h3>
+        {% endfor %}
+    {% endif %}
+
+<!--<table>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>Poniedziałek</th>-->
+<!--      <th>Wtorek</th>-->
+<!--      <th>Środa</th>-->
+<!--      <th>Czwartek</th>-->
+<!--      <th>Piątek</th>-->
+<!--      <th>Sobota</th>-->
+<!--      <th>Niedziela</th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--    <tr>-->
+{% for weekday in weekday_names %}
+<h1>AA</h1>
+    <h3>{{ weekday }}</h3>
+{% endfor %}
+
+      {% for i in date.weekday_names_abbr %}
+        <h3>ss</h3>
+<!--        {% with current_date=current_date|date:"Y-m-d" %}-->
+<!--        <td>{{ current_date }}</td>-->
+<!--        {% get_current_date as current_date %}-->
+<!--        {% endwith %}-->
+      {% endfor %}
+<!--    </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<!--{% endblock %}-->
