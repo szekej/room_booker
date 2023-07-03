@@ -24,3 +24,16 @@ h1 {
   color: #dc3545; /* Kolor linków - czerwony */
   text-decoration: none; /* Brak podkreślenia */
 }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.event {
+  background-color: #ffcc00; /* Kolor dla kafelka z wydarzeniem */
+}
