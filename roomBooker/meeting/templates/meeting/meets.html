@@ -1,4 +1,5 @@
 {% extends 'meeting/base.html' %}
+{% load post_tags %}
 
 {% block content %}
     {% if meet_list %}
@@ -14,34 +15,23 @@
         {% endfor %}
     {% endif %}
 
-<!--<table>-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th>Poniedziałek</th>-->
-<!--      <th>Wtorek</th>-->
-<!--      <th>Środa</th>-->
-<!--      <th>Czwartek</th>-->
-<!--      <th>Piątek</th>-->
-<!--      <th>Sobota</th>-->
-<!--      <th>Niedziela</th>-->
-<!--    </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--    <tr>-->
-{% for weekday in weekday_names %}
-<h1>AA</h1>
-    <h3>{{ weekday }}</h3>
-{% endfor %}
-
-      {% for i in date.weekday_names_abbr %}
-        <h3>ss</h3>
-<!--        {% with current_date=current_date|date:"Y-m-d" %}-->
-<!--        <td>{{ current_date }}</td>-->
-<!--        {% get_current_date as current_date %}-->
-<!--        {% endwith %}-->
-      {% endfor %}
-<!--    </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
-
-<!--{% endblock %}-->
+<table>
+    <thead>
+        <tr>
+            {% actual_week as week_dates %}
+                {% for date in week_dates %}
+                    <th>{{ date }}</th>
+                {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% range_values as hours %}
+            {% for hour in hours %}
+                <tr>
+                    {% for _ in "x"|rjust:7 %}
+                        <td>{{ hour }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+    </tbody>
+</table>

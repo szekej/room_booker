@@ -78,10 +78,3 @@ class MeetDetailView(DetailView):
     context_object_name = 'detail_meet'
 
 
-from datetime import date
-from django.shortcuts import render
-
-
-def my_view(request):
-    weekday_names = ['poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota', 'niedziela']
-    return render(request, 'meets.html', {'weekday_names': weekday_names})
