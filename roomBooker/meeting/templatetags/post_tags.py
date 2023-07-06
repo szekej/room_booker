@@ -1,5 +1,6 @@
 from django import template
 from datetime import datetime, timedelta
+from meeting.models import Meet
 
 register = template.Library()
 
@@ -29,3 +30,27 @@ def actual_week():
 @register.simple_tag
 def range_values():
     return [f"{hour:02d}:{min:02d}" for hour in range(24) for min in [0, 30]]
+
+
+@register.simple_tag
+def dict_of_dates_and_hours():
+    meet_data = {}
+    meets = Meet.objects.all()
+    for meet in meets:
+        start_time = datetime.combine(datetime.today(), meet.start_time).time()
+        end_time = datetime.combine(datetime.today(), meet.end_time).time()
+        time_list = []
+        current_time = datetime.combine(datetime.today(), start_time)
+
+        while current_time.time() <= end_time:
+            time_list.append(current_time.strftime('%H:%M'))
+            current_time += timedelta(minutes=30)
+
+        date_key = meet.meet_date.strftime('%d.%m.%Y')
+        if date_key in meet_data:
+            meet_data[date_key].extend(time_list)
+        else:
+            meet_data[date_key] = time_list
+
+    return meet_data
+
