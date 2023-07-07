@@ -1,0 +1,33 @@
+{% extends 'meeting/base.html' %}
+{% load post_tags %}
+
+{% block content %}
+
+<table>
+    <thead>
+        <tr>
+            {% actual_week as week_dates %}
+                {% for date in week_dates %}
+                    <th>{{ date }}</th>
+                {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% dict_of_dates_and_hours as meets %}
+        {% range_values as hours %}
+            {% for hour in hours %}
+                <tr>
+                    {% for date in week_dates %}
+                    {% get_meet_times meets date as meet_times %}
+                        {% if date in meets and hour in meet_times %}
+                            <td style="background-color: yellow;">{{ hour }}</td>
+                        {% else %}
+                            <td>{{ hour }}</td>
+                        {% endif%}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

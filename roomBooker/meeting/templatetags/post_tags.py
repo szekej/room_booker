@@ -23,7 +23,7 @@ def actual_week():
 
     # Generowanie pozostałych dat dla obecnego tygodnia
     dates_of_week = [start_of_week + timedelta(days=i) for i in range(7)]
-
+    dates_of_week = [date.strftime('%d.%m.%Y') for date in dates_of_week]
     return dates_of_week
 
 
@@ -54,3 +54,10 @@ def dict_of_dates_and_hours():
 
     return meet_data
 
+
+@register.simple_tag
+def get_meet_times(meets, date):
+    """
+    zastępuje meets.get(date), co w szablonach jest niedozwolone
+    """
+    return meets.get(date)

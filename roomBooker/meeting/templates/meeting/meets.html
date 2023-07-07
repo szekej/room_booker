@@ -1,5 +1,4 @@
 {% extends 'meeting/base.html' %}
-{% load post_tags %}
 
 {% block content %}
     {% if meet_list %}
@@ -14,35 +13,5 @@
             <h3>{{meet.name}} {{meet.start_time|time:'H:i'}} {{meet.end_time|time:'H:i'}} {{meet.meet_date|date:'d.m.Y'}}</h3>
         {% endfor %}
     {% endif %}
-
-<table>
-    <thead>
-        <tr>
-            {% actual_week as week_dates %}
-                {% for date in week_dates %}
-                    <th>{{ date|date:'d.m.Y' }}</th>
-                {% endfor %}
-        </tr>
-    </thead>
-    <tbody>
-        {% dict_of_dates_and_hours as meets %}
-        <h3>{{meets}}</h3>
-        {% range_values as hours %}
-            {% for hour in hours %}
-                <tr>
-                    {% for date in week_dates %}
-                        {% if date|date:'d.m.Y' in meets %}
-
-                            <h4>{{hour}} -> {{meets}}</h4>
-                        {% else %}
-
-                        {% endif%}
-                        <td>{{ hour }}</td>
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-    </tbody>
-</table>
-
 
 {% endblock %}

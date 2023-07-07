@@ -12,11 +12,10 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     color: #fff; /* kolor tekstu nawigacji */
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
 }
-.navbar a {
-    color: #fff; /* kolor linków nawigacji */
-    margin-right: 10px;
-}
+
 .content {
     margin: 20px;
 }
@@ -37,3 +36,5 @@ th, td {
 .event {
   background-color: #ffcc00; /* Kolor dla kafelka z wydarzeniem */
 }
+
+
