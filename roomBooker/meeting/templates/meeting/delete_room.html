@@ -4,7 +4,7 @@
 <h2> are you sure you want to delete "{{delete_room.name}}" room?</h2>
     <form method="POST">
         {% csrf_token %}
-        <input type="submit" value="Yes">
-        <button type="button"><a href="{% url 'rooms' %}">Cancel</a></button>
+        <button type="submit" >Yes</button>
+        <button type="button" class="cancel" onclick="location.href='{% url 'rooms' %}'">Cancel</a></button>
     </form>
 {% endblock %}

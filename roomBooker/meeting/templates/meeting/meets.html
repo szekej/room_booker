@@ -4,14 +4,15 @@
     {% if meet_list %}
         {% for meet in meet_list %}
             <h1><a class="link" href="{% url 'meet_detail' meet.id %}">{{meet}}</a></h1>
+            <h5>{{meet.meet_date|date:'d.m.Y'}}</h5>
         {% endfor %}
     {% endif %}
         <button type="submit" class="button_submit" onclick="location.href='{% url 'add_meet' %}'">Add Meet</button>
 
-    {% if meet_list %}
-        {% for meet in meet_list %}
-            <h3>{{meet.name}} {{meet.start_time|time:'H:i'}} {{meet.end_time|time:'H:i'}} {{meet.meet_date|date:'d.m.Y'}}</h3>
-        {% endfor %}
-    {% endif %}
+<!--    {% if meet_list %}-->
+<!--        {% for meet in meet_list %}-->
+<!--            <h3>{{meet.name}} {{meet.start_time|time:'H:i'}} {{meet.end_time|time:'H:i'}} {{meet.meet_date|date:'d.m.Y'}}</h3>-->
+<!--        {% endfor %}-->
+<!--    {% endif %}-->
 
 {% endblock %}
