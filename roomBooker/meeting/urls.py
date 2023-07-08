@@ -5,7 +5,7 @@ from .views import WelcomeView, RoomDetailView, RoomListView,\
 
 
 urlpatterns = [
-    path('welcome/', WelcomeView.as_view(), name='welcome'),
+    path('', WelcomeView.as_view(), name='welcome'),
     path('rooms/', RoomListView.as_view(), name='rooms'),
     path('new/', CreateRoomView.as_view(), name='add_room'),
     path('rooms/<int:pk>', RoomDetailView.as_view(), name='room_detail'),
