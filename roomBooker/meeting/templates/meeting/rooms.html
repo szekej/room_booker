@@ -10,6 +10,6 @@
     {% endif %}
     <!-- if user is admin -> can add new room -->
     {% if user.is_superuser%}
-        <button><a href="{% url 'add_room' %}">Add Room</a></button>
+        <button type="submit" onclick="location.href='{% url 'add_room' %}'">Add Room</a></button>
     {% endif %}
 {% endblock %}

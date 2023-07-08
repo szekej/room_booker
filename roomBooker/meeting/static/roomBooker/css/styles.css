@@ -9,20 +9,24 @@ h1 {
 }
 .navbar {
     background-color: #333; /* kolor tła nawigacji */
+    padding: 15px;
+}
+
+.navbar-link {
     font-family: Arial, Helvetica, sans-serif;
-    color: #fff; /* kolor tekstu nawigacji */
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
+    color: #f8e1e1; /* kolor tekstu nawigacji */
+    margin-right: 2%;
+    text-decoration: none;
 }
 
 .content {
     margin: 20px;
 }
 .link {
-  color: #dc3545; /* Kolor linków - czerwony */
+  color: #c67f7f; /* Kolor linków - czerwony */
   text-decoration: none; /* Brak podkreślenia */
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -34,7 +38,38 @@ th, td {
 }
 
 .event {
-  background-color: #ffcc00; /* Kolor dla kafelka z wydarzeniem */
+    background-color: #ffcc00; /* Kolor dla kafelka z wydarzeniem */
 }
 
+button[type="submit"] {;
+    font-family: Arial, sans-serif;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Kolor tła */
+    color: white; /* Kolor tekstu */
+    border: none; /* Brak obramowania */
+    border-radius: 4px; /* Zaokrąglenie rogów */
+    font-size: 12px; /* Rozmiar czcionki */
+    cursor: pointer; /* Kursor wskazujący */
+}
 
+button[type="submit"]:hover {
+  background-color: #45a049; /* Kolor tła po najechaniu */
+  color: #000; /* Kolor tekstu po najechaniu myszką */
+}
+
+button.cancel {
+  background-color: #ff0042; /* Kolor tła */
+  color: white; /* Kolor tekstu */
+  border: none; /* Brak obramowania */
+  padding: 10px 20px; /* Wielkość wewnętrznego marginesu */
+  border-radius: 4px;
+  font-size: 12px; /* Rozmiar czcionki */
+  font-family: Arial, sans-serif; /* Czcionka */
+  cursor: pointer; /* Kursor wskazujący */
+  transition: background-color 0.3s, color 0.3s; /* Efekt przejścia animacji */
+}
+
+button.cancel:hover {
+  background-color: #cc0035; /* Kolor tła po najechaniu myszką */
+  color: #000; /* Kolor tekstu po najechaniu myszką */
+}

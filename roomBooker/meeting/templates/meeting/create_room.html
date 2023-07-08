@@ -6,7 +6,7 @@
         <table>
           {{ room_form }}
         </table>
-        <button type="submit">submit</button>
-        <button><a href="{% url 'rooms' %}">cancel</a></button>
+        <button type="submit">Submit</button>
+        <button class="cancel" onclick="location.href='{% url 'rooms' %}'">Cancel</button>
     </form>
 {% endblock %}
