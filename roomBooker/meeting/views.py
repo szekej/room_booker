@@ -57,7 +57,7 @@ class CreateMeetView(CreateView):
     model = Meet
     form_class = CreateMeetForm
     template_name = 'meeting/create_meet.html'
-    success_url = '/meeting/welcome'
+    success_url = '/meeting/meets'
     context_object_name = 'meet_form'
 
     def get_context_data(self, **kwargs):
@@ -76,6 +76,13 @@ class MeetDetailView(DetailView):
     model = Meet
     template_name = 'meeting/meet_detail.html'
     context_object_name = 'detail_meet'
+
+
+class DeleteMeetView(DeleteView):
+    model = Meet
+    template_name = 'meeting/delete_meet.html'
+    success_url = reverse_lazy('meets')
+    context_object_name = 'delete_meet'
 
 
 class WeekPreviewView(TemplateView):

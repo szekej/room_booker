@@ -20,7 +20,7 @@
                     {% for date in week_dates %}
                     {% get_meet_times meets date as meet_times %}
                         {% if date in meets and hour in meet_times %}
-                            <td style="background-color: yellow;">{{ hour }}</td>
+                            <td class="event" onclick="location.href='{% url 'meets' %}'">{{ hour }}</td>
                         {% else %}
                             <td>{{ hour }}</td>
                         {% endif%}

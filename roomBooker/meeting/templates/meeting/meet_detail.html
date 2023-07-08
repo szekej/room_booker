@@ -1,8 +1,8 @@
 {% extends 'meeting/base.html' %}
 
 {% block content %}
-    <h1>Details</h1>
-    <h2>{{detail_meet.name}}</h2>
-    <h3>{{detail_meet.start_time|time:'H:i'}} - {{detail_meet.end_time|time:'H:i'}}</h3>
-    <h3>{{detail_meet.meet_date|date:'d.m.Y'}}</h3>
+    <h1>Event details: {{detail_meet.name}}</h1>
+    <h3>{{detail_meet.meet_date|date:'d.m.Y'}} <br>{{detail_meet.start_time|time:'H:i'}} - {{detail_meet.end_time|time:'H:i'}}</h3>
+    <h5>Room: {{detail_meet.room}}</h5>
+    <button class="cancel" onclick="location.href='{% url 'delete_meet' detail_meet.id %}'">Delete</button>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>{{detail_room.name}}</h1>
-    <h3>{{detail_room.description}}</h3>
-    <button type="button"><a href="{% url 'delete_room' detail_room.id %}">Delete</a></button>
+    <h3>Floor: {{detail_room.floor}} Capacity: {{detail_room.capacity}}</h3>
+    <h5>{{detail_room.description}}</h5>
+    <button class="cancel" onclick="location.href='{% url 'delete_room' detail_room.id %}'">Delete</button>
 {% endblock %}
