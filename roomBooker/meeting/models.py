@@ -1,11 +1,14 @@
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils.text import slugify
 from django import forms
-from django.forms.widgets import TimeInput
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from accounts.models import CustomUser
 
 
 # Create your models here.
+
 
 class Room(models.Model):
     name = models.CharField(max_length=50, unique=True, default="")
@@ -17,12 +20,13 @@ class Room(models.Model):
         return self.name
 
 
-class Meet(models.Model, forms.TimeField):
+class Meet(models.Model):
     name = models.CharField(max_length=50)
     start_time = models.TimeField()
     end_time = models.TimeField()
     meet_date = models.DateField()
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     def clean(self):    # override default method to validate model
         super().clean()

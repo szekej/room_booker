@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        {% dict_of_dates_and_hours as meets %}
+        {% dict_of_dates_and_hours request.user as meets %}
         {% range_values as hours %}
             {% for hour in hours %}
                 <tr>

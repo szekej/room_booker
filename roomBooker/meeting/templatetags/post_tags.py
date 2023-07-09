@@ -33,9 +33,9 @@ def range_values():
 
 
 @register.simple_tag
-def dict_of_dates_and_hours():
+def dict_of_dates_and_hours(user):
     meet_data = {}
-    meets = Meet.objects.all()
+    meets = Meet.objects.filter(user=user)
     for meet in meets:
         start_time = datetime.combine(datetime.today(), meet.start_time).time()
         end_time = datetime.combine(datetime.today(), meet.end_time).time()

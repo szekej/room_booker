@@ -1,5 +1,5 @@
-from django.contrib.auth.decorators import user_passes_test
-from django.shortcuts import redirect, render
+from django.contrib.auth.decorators import user_passes_test, login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import classonlymethod, method_decorator
 from .models import Room, Meet
@@ -32,7 +32,7 @@ class CreateRoomView(CreateView):
     model = Room
     fields = '__all__'
     template_name = 'meeting/create_room.html'
-    success_url = '/meeting/rooms/'
+    success_url = '/rooms/'
     context_object_name = 'room_form'
 
     def get_context_data(self, **kwargs):
@@ -53,11 +53,11 @@ class DeleteRoomView(DeleteView):
     context_object_name = 'delete_room'
 
 
-class CreateMeetView(CreateView):
+class CreateMeetView(LoginRequiredMixin, CreateView):
     model = Meet
     form_class = CreateMeetForm
     template_name = 'meeting/create_meet.html'
-    success_url = '/meeting/meets'
+    success_url = '/meets'
     context_object_name = 'meet_form'
 
     def get_context_data(self, **kwargs):
@@ -65,11 +65,20 @@ class CreateMeetView(CreateView):
         context['meet_form'] = context['form']
         return context
 
+    # Przypisanie obecnie zalogowanego użytkownika do zmiennej user w modelu Meets
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 
 class MeetListView(ListView):
     model = Meet
     template_name = 'meeting/meets.html'
     context_object_name = 'meet_list'
+
+    # zwracanie spotkań obecnie zalogowanego użytkownika
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
 
 
 class MeetDetailView(DetailView):
@@ -90,6 +99,6 @@ class WeekPreviewView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['meet_form'] = context['form']
+        context['meetings'] = Meet.objects.filter(user=self.request.user)
         return context
 
