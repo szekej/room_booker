@@ -13,4 +13,4 @@ class CreateMeetForm(forms.ModelForm):
 
     class Meta:
         model = Meet
-        fields = '__all__'
+        exclude = ('user', )

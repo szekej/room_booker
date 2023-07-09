@@ -10,18 +10,21 @@
     <div class="navbar" >
         <div class="navbar-left">
             <a class="navbar-link" href="{% url 'welcome' %}">Start Page</a>
-            <a class="navbar-link" href="{% url 'meets' %}">Meets</a>
             <a class="navbar-link" href="{% url 'rooms' %}">Rooms</a>
-            <a class="navbar-link" href="{% url 'week_preview' %}">Week preview</a>
+            {% if user.is_authenticated %}
+                <a class="navbar-link" href="{% url 'meets' %}">Meets</a>
+                <a class="navbar-link" href="{% url 'week_preview' %}">Week preview</a>
+            {% endif %}
         </div>
 
         <div class="navbar-right">
-            {% if user.is_authenticated%}
+            {% if user.is_authenticated %}
                 <a class="navbar-link" href="{% url 'logout' %}">Log out</a>
             {% endif %}
-            <a class="navbar-link" href="{% url 'login' %}">Log in</a>
-            <a class="navbar-link" href="{% url 'signup' %}">Sign in</a>
-
+            {% if not user.is_authenticated %}
+                <a class="navbar-link" href="{% url 'login' %}">Log in</a>
+                <a class="navbar-link" href="{% url 'signup' %}">Sign in</a>
+            {% endif %}
         </div>
     </div>
     <div class="content">
