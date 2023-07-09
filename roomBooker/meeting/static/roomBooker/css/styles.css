@@ -4,37 +4,51 @@ body {
     padding: 0;
 }
 h1 {
-  font-size: 28px;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-  color: #333333;
-  margin-bottom: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: #333333;
+    margin-bottom: 5px;
 }
 
 h3 {
-  font-size: 24px;
-  font-family: Arial, sans-serif;
-  color: #666666;
-  margin-top: 0;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    color: #666666;
+    margin-top: 0;
 }
 
 h5 {
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  color: #999999;
-  margin-top: 0;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #999999;
+    margin-top: 0;
 }
 
 .navbar {
     background-color: #333; /* kolor tła nawigacji */
     padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Dodany styl */
+}
+
+.navbar-left {
+    display: flex;
+}
+
+.navbar-right {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 3%;
 }
 
 .navbar-link {
     font-family: Arial, sans-serif;
+    white-space: nowrap; /* Dodane */
     font-weight: bold; /* Pogrubienie tekstu */
     color: #f8e1e1; /* kolor tekstu nawigacji */
-    margin-right: 2%;
+    margin-right: 7%;
     text-decoration: none;
 }
 
@@ -42,32 +56,32 @@ h5 {
     margin: 20px;
 }
 .link {
-  color: #c67f7f; /* Kolor linków - czerwony */
-  text-decoration: none; /* Brak podkreślenia */
+    color: #c67f7f; /* Kolor linków - czerwony */
+    text-decoration: none; /* Brak podkreślenia */
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 th {
-  background-color: #f2f2f2; /* Kolor tła */
-  color: #333; /* Kolor tekstu */
-  padding: 10px; /* Wielkość wewnętrznego marginesu */
-  font-size: 15px; /* Rozmiar czcionki */
-  font-weight: bold; /* Pogrubienie tekstu */
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center; /* Wyrównanie tekstu do lewej */
-  border-bottom: 1px solid #ccc; /* Obramowanie dolne */
+    background-color: #f2f2f2; /* Kolor tła */
+    color: #333; /* Kolor tekstu */
+    padding: 10px; /* Wielkość wewnętrznego marginesu */
+    font-size: 15px; /* Rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center; /* Wyrównanie tekstu do lewej */
+    border-bottom: 1px solid #ccc; /* Obramowanie dolne */
 }
 
 td {
-  padding: 10px; /* Wielkość wewnętrznego marginesu */
-  font-size: 14px; /* Rozmiar czcionki */
-  text-align: center; /* Wyrównanie tekstu do lewej */
-  font-family: Arial, Helvetica, sans-serif;
-  border-bottom: 1px solid #ccc; /* Obramowanie dolne */
+    padding: 10px; /* Wielkość wewnętrznego marginesu */
+    font-size: 14px; /* Rozmiar czcionki */
+    text-align: center; /* Wyrównanie tekstu do lewej */
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid #ccc; /* Obramowanie dolne */
 }
 
 
@@ -89,23 +103,23 @@ button[type="submit"] {;
 }
 
 button[type="submit"]:hover {
-  background-color: #45a049; /* Kolor tła po najechaniu */
-  color: #000; /* Kolor tekstu po najechaniu myszką */
+    background-color: #45a049; /* Kolor tła po najechaniu */
+    color: #000; /* Kolor tekstu po najechaniu myszką */
 }
 
 button.cancel {
-  background-color: #ff0042; /* Kolor tła */
-  color: white; /* Kolor tekstu */
-  border: none; /* Brak obramowania */
-  padding: 10px 20px; /* Wielkość wewnętrznego marginesu */
-  border-radius: 4px;
-  font-size: 12px; /* Rozmiar czcionki */
-  font-family: Arial, sans-serif; /* Czcionka */
-  cursor: pointer; /* Kursor wskazujący */
-  transition: background-color 0.3s, color 0.3s; /* Efekt przejścia animacji */
+    background-color: #ff0042; /* Kolor tła */
+    color: white; /* Kolor tekstu */
+    border: none; /* Brak obramowania */
+    padding: 10px 20px; /* Wielkość wewnętrznego marginesu */
+    border-radius: 4px;
+    font-size: 12px; /* Rozmiar czcionki */
+    font-family: Arial, sans-serif; /* Czcionka */
+    cursor: pointer; /* Kursor wskazujący */
+    transition: background-color 0.3s, color 0.3s; /* Efekt przejścia animacji */
 }
 
 button.cancel:hover {
-  background-color: #cc0035; /* Kolor tła po najechaniu myszką */
-  color: #000; /* Kolor tekstu po najechaniu myszką */
+    background-color: #cc0035; /* Kolor tła po najechaniu myszką */
+    color: #000; /* Kolor tekstu po najechaniu myszką */
 }
