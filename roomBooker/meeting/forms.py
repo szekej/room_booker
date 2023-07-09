@@ -7,7 +7,7 @@ class CreateMeetForm(forms.ModelForm):
     end_time = forms.ChoiceField(choices=[(f"{hour:02d}:{min:02d}", f"{hour:02d}:{min:02d}") for hour in range(24) for min in [0, 30]])
     meet_date = forms.DateField(
         widget=forms.SelectDateWidget(
-            years=range(2022, 2030)  # zakres lat do wyboru
+            years=range(2023, 2030)  # zakres lat do wyboru
         )
     )
 
